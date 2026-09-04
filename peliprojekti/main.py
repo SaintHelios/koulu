@@ -1,7 +1,7 @@
+lista = []
 
 def mako():
-    lista = []
-    meow = input("Syötä esine")
+    meow = input("Syötä esine: ")
     lista.append(meow)
     return lista
 
@@ -20,11 +20,11 @@ if ika < 12:
 print(f"Terve, {nimi}")
 
 while True:
-    komento = str(input("\nKomennot:\n\t(1) Tulosta nimi\n\t(2) Tulosta ikä\nSyötä komento: "))
+    komento = str(input("\nKomennot:\n\t(lopeta) Sulkeee ohjelman\n\t(1) Syötä esineen listaan\n\t(2) Tulostaa listan esineitä\nSyötä komento: "))
     if komento == "1":
-        print(f"\t{nimi}")
+        mako()
     elif komento == "2":
-        print(f"\t{ika}")
+        print_lista(lista)
     elif komento == "lopeta":
         print("Lopetetaan...")
         exit()
