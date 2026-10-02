@@ -1,3 +1,5 @@
+from modules import Item, Player, Room
+
 lista = []
 
 def mako():
