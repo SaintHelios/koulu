@@ -40,14 +40,14 @@ def main():
     loaded_player, loaded_lake = game.load_data(player_name)
     loaded = False
 
-    if loaded_player is not None:
-        choice = int(input(f"Previous save for player {player_name} found, would you like to load it? (y/n)\n: "))
+    if loaded_player != None:
+        choice = input(f"Previous save for player {player_name} found, would you like to load it? (y/n)\n: ")
         
         if choice == 'y':
             player = loaded_player
             lake = loaded_lake
             print(f"Welcome back, {player.name}! Resuming from day {player.day}.")
-            game_loaded = True
+            loaded = True
             sleep(2)
         else:
             print("Starting a new game...\n")

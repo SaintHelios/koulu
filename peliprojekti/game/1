@@ -1,7 +1,6 @@
 import json
 from .player import Player
 from .fish import Fish
-from .lake import Lake
 
 def catch_fish(player, lake):
     # poistaa kalan listalta, jottei sitä napata toista kertaa
