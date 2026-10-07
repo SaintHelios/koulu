@@ -1,10 +1,13 @@
 ```text
 peliprojekti/
-├── modules/
+├── game/
 │   ├── __init__.py
-│   ├── item.py
 │   ├── player.py
-│   └── room.py
+│   ├── lake.py
+│   ├── fish.py
+│   └── menu.py
 ├── main.py
+├── intro.text
+├── instructions.txt
 └── readme.md
 ```
