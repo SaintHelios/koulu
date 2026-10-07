@@ -1,5 +1,3 @@
-import json
-
 def catch_fish(player, lake):
     # poistaa kalan listalta, jottei sitä napata toista kertaa
    catch = lake.fishes.pop(0)
@@ -15,49 +13,3 @@ def catch_fish(player, lake):
         # didn't append the fish back into the lake
         # it'd be boring if the player would catch it twice
 
-def save_game(player, lake):
-    
-    bucket_data = []
-    for fish in player.bucket:
-        bucket_data.append(fish.__dict__)
-    
-    lake_data = []
-    for fish in lake.fishes:
-        lake_data.append(fish.__dict__)
-
-    save_data = {
-        "name": player.name,
-        "age": player.age,
-        "day": player.day,
-        "inventory": bucket_data,
-        "lake_fishes": lake_data
-    }
-
-    # using the player's name
-    # helps with loading the player's data
-    filename = f"{player.name}_save.json"
-    with open(filename, "w", ) as file:
-        json.dump(save_data, file)
-
-def load_data(player_name):
-    filename = f"{player_name}_save.txt"
-    try:
-        with open(filename, "r") as file:
-            data = json.load(file)
-        
-        player = Player(data["name"], data["age"])
-        player.day = data["day"]
-        
-        for fish in data["bucket"]:
-            player.bucket.append(Fish(f["name"], f["weight"]))
-            
-        lake = Lake()
-        lake.fishes = []
-        
-        for f in data["lake_fishes"]:
-            lake.fishes.append(Fish(f["name"], f["weight"]))
-            
-        return player, lake
-        
-    except FileNotFoundError:
-        return None, None
