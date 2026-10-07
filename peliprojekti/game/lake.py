@@ -5,3 +5,9 @@ class Lake:
         self.fishes = []
         for i in range(10):
             self.fishes.append(Fish())
+
+    def calculate_weight():
+        total = 0
+        for fish in fishes:
+            total += fish.weight
+        return total
