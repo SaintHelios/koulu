@@ -18,6 +18,19 @@ def catch_fish(player, lake):
         # didn't append the fish back into the lake
         # it'd be boring if the player would catch it twice
 
+def calculate_lake_health(player):
+    total = 0
+    for fish in player.bucket:
+        if fish.size == "small":
+            total += 1
+    if total == 0:
+        return "You didn't keep a single small fish. The Silly Lake stays healthy for the next time!"
+    elif total < 3: 
+        return "You kept a few small fish, straining the lake's population"
+    else:
+        return "You committed environmental war crimes!"
+    
+
 def save_game(player, lake):
     
     bucket_data = []

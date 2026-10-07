@@ -95,6 +95,6 @@ def main():
                 print("Invalid action")
                 sleep(2)
 
-    print(f"{player.calculate_weight()}")
+    game.calculate_lake_health(player)
 main()
 
