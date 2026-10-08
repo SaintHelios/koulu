@@ -25,16 +25,30 @@ def catch_fish(player, lake):
 
    while True:
        try:
-           choice = int(input("--- What will you do? ---\n\t[1] Keep fish\n\t[2] Release fish\n\tInput: "))
+           choice = int(input("--- What will you do? ---\n\t[1] Keep\n\t[2] Release\n\tInput: "))
            break
        except ValueError:
            print("Error: Enter a number.")
 
-   if choice == 1:
-       player.bucket.append(catch)
-       print("Fish added to the bucket")
-   else:
-       print("Fish released")
+   # validating actions
+   while True:
+       if choice == 1:
+           player.bucket.append(catch)
+           print("~ You kept the fish ~ ")
+           break
+       elif choice == 2:
+           print("~ Fish released ~")
+           break
+       else:
+           print("Invalid action.")
+           sleep(2)
+           while True:
+               try:
+                   choice = int(input("--- What will you do? ---\n\t[1] Keep\n\t[2] Release\n\tInput: "))
+                   break
+               except ValueError:
+                   print("Error: Enter a number.")
+
         # didn't append the fish back into the lake
         # it'd be boring if the player would catch it twice
 
